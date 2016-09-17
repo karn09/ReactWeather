@@ -4,11 +4,11 @@ var PropTypes = React.PropTypes;
 var WeatherMessage = React.createClass({
 
   render: function() {
-    var weather = this.props.weather;
+    var {temp, location} = this.props;
     
     return (
       <div>
-        <h3>Weather: {weather}</h3>
+        <h3>In {location} it is {temp}</h3>
       </div>
     );
   }
