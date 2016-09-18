@@ -4,11 +4,13 @@ var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
 
 var Weather = React.createClass({
+
   getInitialState: function () {
     return {
       isLoading: false
     }
   },
+
   handleSearch: function (location) {
     this.setState({ isLoading: true });
     openWeatherMap.getTemp(location).then((temp) => {
@@ -18,17 +20,11 @@ var Weather = React.createClass({
         isLoading: false
       });
     }, (errorMessage) => {
-      this.setState({
-        isLoading: false
-      });
+      this.setState({ isLoading: false });
       alert(errorMessage)
     });
-
-    // this.setState({
-    //   location: location,
-    //   temp: 23
-    // })
   },
+
   render: function () {
     var {isLoading, temp, location} = this.state;
 
